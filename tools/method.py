@@ -56,7 +56,7 @@ class AttackMethod:
 
     # Saida
     def __exit__(self, exc_type, exc_val, exc_tb):
-        print(f"{Fore.MAGENTA}[!] {Fore.BLUE}Ataque completo!{Fore.RESET}")
+        return
 
     # Verifica de tempo de execução
     def __RunTimer(self):
@@ -95,9 +95,9 @@ class AttackMethod:
         # Espera que o flood de threads termine
         for index, thread in enumerate(self.threads):
             thread.join()
-            print(
-                f"{Fore.GREEN}[+] {Fore.YELLOW}Thread parada {index + 1}.{Fore.RESET}"
-            )
+            # print(
+            #     f"{Fore.GREEN}[+] {Fore.YELLOW}Thread parada {index + 1}.{Fore.RESET}"
+            # )
 
     # Inicia o ataque DDOS
     def Start(self):
@@ -106,20 +106,20 @@ class AttackMethod:
         else:
             target = str(self.target).strip("()").replace(", ", ":").replace("'", "")
         duration = format_timespan(self.duration)
-        print(
-            f"{Fore.MAGENTA}[?] {Fore.BLUE}Começando o ataque {target} utiilzando o método {self.name}.{Fore.RESET}\n"
-            f"{Fore.MAGENTA}[?] {Fore.BLUE}O ataque será interrompido após {Fore.MAGENTA}{duration}{Fore.BLUE}.{Fore.RESET}"
-        )
+        # print(
+        #     f"{Fore.MAGENTA}[?] {Fore.BLUE}Começando o ataque {target} utiilzando o método {self.name}.{Fore.RESET}\n"
+        #     f"{Fore.MAGENTA}[?] {Fore.BLUE}O ataque será interrompido após {Fore.MAGENTA}{duration}{Fore.BLUE}.{Fore.RESET}"
+        # )
         self.is_running = True
         try:
             self.__RunThreads()
         except KeyboardInterrupt:
             self.is_running = False
-            print(
-                f"\n{Fore.RED}[!] {Fore.MAGENTA}Ctrl+C detetado. Parando {self.threads_count} threads..{Fore.RESET}"
-            )
+            # print(
+            #     f"\n{Fore.RED}[!] {Fore.MAGENTA}Ctrl+C detetado. Parando {self.threads_count} threads..{Fore.RESET}"
+            # )
             # Espera que as threads terminem
             for thread in self.threads:
                 thread.join()
         except Exception as err:
-            print(err)
+            print()

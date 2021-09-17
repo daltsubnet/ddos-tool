@@ -20,9 +20,9 @@ def __isCloudFlare(link):
         ipv4 = [row.rstrip() for row in iprange.splitlines()]
         for i in range(len(ipv4)):
             if ipaddress.ip_address(origin) in ipaddress.ip_network(ipv4[i]):
-                print(
-                    f"{Fore.RED}[!] {Fore.CYAN}Este site é protegido pela CloudFlare, este ataque pode não produzir os resultados desejados.{Fore.RESET}"
-                )
+                # print(
+                #     f"{Fore.RED}[!] {Fore.CYAN}Este site é protegido pela CloudFlare, este ataque pode não produzir os resultados desejados.{Fore.RESET}"
+                # )
                 sleep(1)
     except socket.gaierror:
         return False
@@ -36,7 +36,7 @@ def __GetAddressInfo(target):
         ip = target.split(":")[0]
         port = int(target.split(":")[1])
     except IndexError:
-        print(f"{Fore.RED}[!] {Fore.MAGENTA}Deves inserir um ip e port{Fore.RESET}")
+        # print(f"{Fore.RED}[!] {Fore.MAGENTA}Deves inserir um ip e port{Fore.RESET}")
         sys.exit(1)
     else:
         return ip, port
@@ -102,7 +102,7 @@ def InternetConnectionCheck():
     try:
         requests.get("https://google.com", timeout=4)
     except:
-        print(
-            f"{Fore.RED}[!] {Fore.MAGENTA}Your device is not connected to the Internet{Fore.RESET}"
-        )
+        # print(
+        #     f"{Fore.RED}[!] {Fore.MAGENTA}Your device is not connected to the Internet{Fore.RESET}"
+        # )
         sys.exit(1)

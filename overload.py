@@ -14,7 +14,7 @@ try:
     import tools.addons.winpcap
     from tools.method import AttackMethod
 except ImportError as err:
-    CriticalError("Falha ao importar alguns modulos", err)
+    # CriticalError("Falha ao importar alguns modulos", err)
     sys.exit(1)
 
 # Analisa args

@@ -25,11 +25,7 @@
  <h2>Linux</h2><img src="https://raw.githubusercontent.com/8fn/overload/main/img/linux-icon-28166.png" width="50" height="50">
 
 ```
-sudo apt update
-sudo apt install python3 python3-pip git -y
-git clone https://github.com/7zx/overload
-cd overload/
-pip3 install -r requirements.txt
+sudo apt update && sudo apt install python3 python3-pip git -y && git clone https://github.com/7zx/overload && cd overload/ && pip3 install -r requirements.txt &&
 ```
 
 <h2>Termux</h2><img src="https://brandslogos.com/wp-content/uploads/images/large/terminal-logo.png" width="50" height="50">  
